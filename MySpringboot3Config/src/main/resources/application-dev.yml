@@ -1,3 +1,12 @@
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
+---
+app:
+  name: ateng
+  port: 12345
+  ids:
+    - 1
+    - 2
+    - 3
+

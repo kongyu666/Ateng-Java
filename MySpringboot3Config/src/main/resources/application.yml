@@ -1,2 +1,5 @@
 server:
   port: 20910
+spring:
+  profiles:
+    active: dev
