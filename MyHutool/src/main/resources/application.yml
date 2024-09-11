@@ -1,0 +1,7 @@
+server:
+  port: 23312  # 服务器端口
+spring:
+  application:
+    name: hutool
+  profiles:
+    active: dev

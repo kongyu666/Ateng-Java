@@ -1,0 +1,30 @@
+server:
+  port: 24130  # 服务器端口
+
+--- # 监控中心服务端配置
+spring:
+  application:
+    name: ateng-monitor-client
+
+--- # Actuator 监控端点的配置项
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: ALWAYS
+
+--- # 监控配置
+spring.boot.admin.client:
+  # 增加客户端开关
+  enabled: true
+  # 设置 Spring Boot Admin Server 地址
+  url: http://localhost/admin/
+  instance:
+    service-host-type: IP
+  username: admin
+  password: Admin@123

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 指定Hadoop文件系统的URI -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://bigdata01:8020</value>
+    </property>
+
+    <!-- 指定Hadoop的临时目录，用于存储临时数据和日志 -->
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>file:/data/service/hadoop/dfs/tmp</value>
+    </property>
+
+    <!-- 配置回收站清理间隔，单位：分钟 -->
+    <property>
+        <name>fs.trash.interval</name>
+        <value>1440</value>
+    </property>
+
+    <!-- 配置回收站检查点（checkpoint）创建间隔，单位：分钟 -->
+    <property>
+        <name>fs.trash.checkpoint.interval</name>
+        <value>1440</value>
+    </property>
+
+    <!-- 配置匿名用户的默认所属者 -->
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>web</value>
+    </property>
+
+    <!--配置所有节点的admin用户都可作为代理用户-->
+    <property>
+        <name>hadoop.proxyuser.admin.hosts</name>
+        <value>*</value>
+    </property>
+
+    <!--配置admin用户能够代理的用户组为任意组-->
+    <property>
+        <name>hadoop.proxyuser.admin.groups</name>
+        <value>*</value>
+    </property>
+
+    <!--配置admin用户能够代理的用户为任意用户-->
+    <property>
+        <name>hadoop.proxyuser.admin.users</name>
+        <value>*</value>
+    </property>
+</configuration>

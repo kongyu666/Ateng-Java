@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 配置S3A访问的access key -->
+    <property>
+        <name>fs.s3a.access.key</name>
+        <value>admin</value>
+    </property>
+
+    <!-- 配置S3A访问的secret key -->
+    <property>
+        <name>fs.s3a.secret.key</name>
+        <value>Lingo@local_minio_9000</value>
+    </property>
+
+    <!-- 配置S3A的endpoint地址 -->
+    <property>
+        <name>fs.s3a.endpoint</name>
+        <value>http://192.168.1.12:9000</value>
+    </property>
+
+    <!-- 禁用S3A连接的SSL -->
+    <property>
+        <name>fs.s3a.connection.ssl.enabled</name>
+        <value>false</value>
+    </property>
+
+    <!-- 启用S3A的路径风格访问 -->
+    <property>
+        <name>fs.s3a.path.style.access</name>
+        <value>true</value>
+    </property>
+
+    <!-- 配置S3A文件系统实现 -->
+    <property>
+        <name>fs.s3a.impl</name>
+        <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+    </property>
+
+    <!-- 配置S3A的最大连接数 -->
+    <property>
+        <name>fs.s3a.connection.maximum</name>
+        <value>100</value>
+    </property>
+
+</configuration>

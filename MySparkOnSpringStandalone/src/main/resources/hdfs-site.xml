@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 配置HDFS数据目录，多个目录用逗号分隔 -->
+    <property>
+        <name>dfs.data.dir</name>
+        <value>file:/data/service/hadoop/dfs/data</value>
+    </property>
+
+    <!-- 配置NameNode元数据存储目录，多个目录用逗号分隔 -->
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:/data/service/hadoop/dfs/name</value>
+    </property>
+
+    <!-- 配置NameNode的HTTP Web 界面端口 -->
+    <property>
+        <name>dfs.namenode.http-address</name>
+        <value>bigdata01:9870</value>
+    </property>
+
+    <!-- 配置SecondaryNameNode的HTTP Web 界面端口 -->
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>bigdata01:9861</value>
+    </property>
+
+     <!-- 配置 NameNode 的 RPC 监听地址 -->
+    <property>
+        <name>dfs.namenode.rpc-bind-host</name>
+        <!-- 指定 NameNode 的 RPC 监听地址 -->
+        <value>0.0.0.0</value>
+    </property>
+
+    <!-- 配置 NameNode 的 HTTP 监听地址 -->
+    <property>
+        <name>dfs.namenode.http-bind-host</name>
+        <!-- 指定 NameNode 的 HTTP 监听地址 -->
+        <value>0.0.0.0</value>
+    </property>
+    
+    <!-- 配置HDFS默认数据块复本数量 -->
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+    <!-- 配置HDFS默认数据块大小（单位：字节） -->
+    <property>
+        <name>dfs.blocksize</name>
+        <value>134217728</value> <!-- 128MB -->
+    </property>
+
+    <!-- 启用HDFS权限检查 -->
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>true</value>
+    </property>
+
+    <!-- 配置默认的目录所有者和所属组 -->
+    <property>
+        <name>dfs.permissions.superusergroup</name>
+        <value>ateng</value>
+    </property>
+
+    <!-- 配置具有修改目录所有者权限的用户和用户组 -->
+    <property>
+        <name>dfs.cluster.administrators</name>
+        <value>root root,admin ateng,kongyu ateng</value>
+    </property>
+
+    <!-- 禁用匿名访问 -->
+    <property>
+        <name>hadoop.http.authentication.simple.anonymous.allowed</name>
+        <value>true</value>
+    </property>
+
+<property>
+    <name>dfs.webhdfs.enabled</name>
+    <value>true</value>
+</property>
+
+</configuration>

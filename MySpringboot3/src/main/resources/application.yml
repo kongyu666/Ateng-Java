@@ -1,0 +1,6 @@
+server:
+  port: 12157
+spring:
+  threads:
+    virtual:
+      enabled: true

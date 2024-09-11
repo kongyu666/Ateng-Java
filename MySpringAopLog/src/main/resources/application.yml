@@ -1,0 +1,17 @@
+server:
+  port: 17823
+  error:
+    include-exception: true
+  servlet:
+    encoding:
+      charset: utf-8
+spring:
+  # 切面启用
+  aop:
+    auto: true
+    proxy-target-class: true
+  mvc:
+    throw-exception-if-no-handler-found: true #出现错误时, 直接抛出异常
+  web:
+    resources:
+      add-mappings: false #不要为我们工程中的资源文件建立映射

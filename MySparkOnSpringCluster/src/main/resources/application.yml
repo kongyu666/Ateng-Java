@@ -1,0 +1,7 @@
+server:
+  port: 20602
+spring:
+  main:
+    web-application-type: none
+  application:
+    name: SparkOnSpring

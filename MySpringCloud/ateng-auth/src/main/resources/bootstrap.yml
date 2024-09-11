@@ -1,0 +1,45 @@
+--- # Tomcat
+server:
+  port: 20251
+  servlet:
+    context-path: /
+--- # nacos 配置
+spring:
+  application:
+    name: ateng-auth
+  cloud:
+    nacos:
+      # nacos:8848 服务地址
+      server-addr: 192.168.1.31:8848
+      username: nacos
+      password: Admin@123
+      discovery:
+        # 注册组
+        group: dev
+        namespace: b564f30d-0372-4265-b268-511a48b713e1
+      config:
+        # 配置组
+        group: dev
+        namespace: b564f30d-0372-4265-b268-511a48b713e1
+        file-extension: yml
+  config:
+    import:
+      - optional:nacos:application-common.yml
+
+---
+############## Sa-Token 配置 (文档: https://sa-token.cc) ##############
+sa-token:
+  # token 名称（同时也是 cookie 名称）
+  token-name: satoken
+  # token 有效期（单位：秒） 默认30天，-1 代表永久有效
+  timeout: 2592000
+  # token 最低活跃频率（单位：秒），如果 token 超过此时间没有访问系统就会被冻结，默认-1 代表不限制，永不冻结
+  active-timeout: -1
+  # 是否允许同一账号多地同时登录 （为 true 时允许一起登录, 为 false 时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
+  is-share: true
+  # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: false

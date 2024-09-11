@@ -1,0 +1,25 @@
+server:
+  port: 23214  # 服务器端口
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+graceful-response:
+  # 是否打印异常日志，默认为false
+  print-exception-in-global-advice: true
+  # Response风格，不配置默认为0
+  response-style: 1
+  # 自定义的成功响应码，不配置则为0
+  default-success-code: 0
+  # 自定义的成功提示，默认为ok
+  default-success-msg: "请求成功"
+  # 自定义的失败响应码，默认为1
+  default-error-code: 90000
+  # 自定义的失败提示，默认为error
+  default-error-msg: "服务器异常, 请稍后再试"
+  # 自定义Response格式
+  #response-class-full-name: local.kongyu.gracefulResponse.result.CustomResponseImpl
+  # 使用FastJsonHttpMessageConverter进行JSON序列化
+  json-http-message-converter: com.alibaba.fastjson2.support.spring.http.converter.FastJsonHttpMessageConverter

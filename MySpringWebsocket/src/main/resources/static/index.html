@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Example</title>
+    <script type="text/javascript">
+        var token = "123456";
+        var user = "1";
+        var websocket = new WebSocket("ws://192.168.100.2:23112/ws"+"?token=" + token+"&user=" + user);
+        var messageQueue = []; // 存储待处理的消息队列
+
+        websocket.onopen = function() {
+            console.log("WebSocket connection established.");
+            websocket.send("Hello, server!");
+        };
+
+        websocket.onmessage = function(event) {
+            var message = event.data;
+            console.log("Received message from server: " + message);
+            var messageElement = document.getElementById("messages");
+            if (messageElement) {
+                messageElement.innerHTML += "<p>" + message + "</p>";
+            } else {
+                // 如果 messageElement 不存在，将消息存储在队列中
+                messageQueue.push(message);
+            }
+        };
+
+        websocket.onclose = function() {
+            console.log("WebSocket connection closed.");
+        };
+
+        websocket.onerror = function(event) {
+            console.error("WebSocket error observed:", event);
+        };
+
+        // 确保 messageElement 可用后处理消息队列中的消息
+        document.addEventListener("DOMContentLoaded", function() {
+            var messageElement = document.getElementById("messages");
+            if (messageElement) {
+                // 处理队列中的消息
+                messageQueue.forEach(function(message) {
+                    messageElement.innerHTML += "<p>" + message + "</p>";
+                });
+                // 清空消息队列
+                messageQueue = [];
+            }
+        });
+    </script>
+</head>
+<body>
+<h1>WebSocket Example</h1>
+<div id="messages"></div> <!-- This div will contain the messages from the server -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+server:
+  port: 30807
+---
+# Kafka配置
+spring:
+  kafka:
+    bootstrap-servers: 192.168.1.10:9094
+    consumer:
+      group-id: ateng_spring
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+---
+# Kafka客户端批量消费配置
+#spring:
+#  kafka:
+#    listener:
+#      type: batch
+#    consumer:
+#      max-poll-records: 1000

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE Example</title>
+</head>
+<body>
+
+<h1>Server-Sent Events Example</h1>
+<div id="sseData"></div>
+
+<script>
+    const sseData = document.getElementById('sseData');
+
+    const eventSource = new EventSource('http://localhost:29821/events');
+
+    eventSource.onmessage = function(event) {
+        const newElement = document.createElement('p');
+        newElement.textContent = event.data;
+        sseData.appendChild(newElement);
+    };
+
+    eventSource.onerror = function(error) {
+        console.error('EventSource failed:', error);
+        eventSource.close();
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+--- # Tomcat
+server:
+  port: 20259
+  servlet:
+    context-path: /
+--- # nacos 配置
+spring:
+  application:
+    name: ateng-demo
+  cloud:
+    nacos:
+      # nacos:8848 服务地址
+      server-addr: 192.168.1.31:8848
+      username: nacos
+      password: Admin@123
+      discovery:
+        # 注册组
+        group: dev
+        namespace: b564f30d-0372-4265-b268-511a48b713e1
+      config:
+        # 配置组
+        group: dev
+        namespace: b564f30d-0372-4265-b268-511a48b713e1
+        file-extension: yml
+  config:
+    import:
+      - optional:nacos:application-common.yml

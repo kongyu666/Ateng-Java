@@ -1,0 +1,10 @@
+
+       █████╗ ████████╗███████╗███╗   ██╗ ██████╗
+      ██╔══██╗╚══██╔══╝██╔════╝████╗  ██║██╔════╝
+      ███████║   ██║   █████╗  ██╔██╗ ██║██║  ███╗
+      ██╔══██║   ██║   ██╔══╝  ██║╚██╗██║██║   ██║
+      ██║  ██║   ██║   ███████╗██║ ╚████║╚██████╔╝
+      ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝ ╚═════╝
+${AnsiColor.CYAN}        JDK Version:${AnsiColor.BLACK} ${AnsiColor.BRIGHT_GREEN}${java.version} ${AnsiColor.BLACK}
+${AnsiColor.CYAN}        SpringBoot Version:${AnsiColor.BLACK} ${AnsiColor.BRIGHT_GREEN}${spring-boot.version} ${AnsiColor.BLACK}
+${AnsiColor.CYAN}        Application Name:${AnsiColor.BLACK} ${AnsiColor.BRIGHT_GREEN}${spring.application.name} ${AnsiColor.BLACK}

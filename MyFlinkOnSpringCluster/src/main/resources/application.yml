@@ -1,0 +1,14 @@
+server:
+  port: 20601
+spring:
+  main:
+    web-application-type: none
+  application:
+    name: FlinkOnSpring
+logging:
+  level:
+    root: INFO
+    org.apache: INFO
+flink:
+  kafka:
+    servers: 192.168.1.10:9094

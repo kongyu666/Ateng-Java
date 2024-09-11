@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+  <script>
+    var stompClient = null;
+
+    function connect() {
+      var socket = new SockJS('http://localhost:23154/ws'+'?token=123456');
+      stompClient = Stomp.over(socket);
+      var headers = {
+        "Authorization": "Bearer 7777777",
+        "userId": "1",
+        "userName": "阿腾"
+      };
+      stompClient.connect(headers, function (frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/user/'+1+'/topic/message', function (greeting) { // /user/{userId}/topic/message
+          // 处理接收到的消息
+          var message = greeting.body
+          console.log(message);
+          showGreeting(message);
+        });
+      });
+    }
+
+    function disconnect() {
+      if (stompClient !== null) {
+        stompClient.disconnect();
+      }
+      console.log("Disconnected");
+    }
+
+    function sendName() {
+      var name = document.getElementById('name').value;
+      var userId = document.getElementById('userId').value;
+      var data = {
+        userId: userId,
+        content: name
+      };
+      stompClient.send("/app/send/" + userId, {}, JSON.stringify(data));
+    }
+
+    function showGreeting(message) {
+      var p = document.createElement('p');
+      p.style.wordWrap = 'break-word';
+      p.textContent = message;
+      document.getElementById('greetings').appendChild(p);
+    }
+  </script>
+</head>
+<body>
+<h1>WebSocket Example</h1>
+<div>
+  <label for="userId">User ID:</label>
+  <input type="text" id="userId" />
+  <label for="name">Name:</label>
+  <input type="text" id="name" />
+  <button onclick="sendName()">Send</button>
+</div>
+<div id="greetings"></div>
+<script>
+  connect();
+</script>
+</body>
+</html>

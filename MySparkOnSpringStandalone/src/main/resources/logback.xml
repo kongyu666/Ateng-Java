@@ -1,0 +1,20 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <logger name="org.apache" level="ERROR">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="org.sparkproject" level="ERROR">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="hive.metastore" level="ERROR">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
