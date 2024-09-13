@@ -1,6 +1,8 @@
 package local.kongyu.mybatisFlex.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *  实体类。
@@ -21,30 +23,16 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(value = "my_user")
-
 public class MyUser implements Serializable {
+    private static final long serialVersionUID = 1L; // 序列化版本号，可选
 
-    /**
-     * user id
-     */
-    private String userId;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date date;
-
-    private String city;
-
+    @Id(keyType = KeyType.Auto)
+    private Long id;
+    private String name;
     private Integer age;
-
-    private Integer sex;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date lastVisitDate;
-
-    private Long cost;
-
-    private Integer maxDwellTime;
-
-    private Integer minDwellTime;
-
+    private Double score;
+    private Date birthday;
+    private String province;
+    private String city;
+    private Date createTime;
 }

@@ -33,7 +33,6 @@ public class MybatisFlexGenerator {
             "test", "demo", "spatial_ref_sys"
     );
 
-
     public static void main(String[] args) {
         //配置数据源
         DruidDataSource dataSource = new DruidDataSource();
@@ -81,6 +80,9 @@ public class MybatisFlexGenerator {
         globalConfig.getJavadocConfig()
                 .setAuthor("孔余")
                 .setSince("1.0.0");
+
+        //设置项目的JDK版本，项目的JDK为14及以上时建议设置该项，小于14则可以不设置
+        globalConfig.setEntityJdkVersion(21);
 
         // 策略配置 StrategyConfig，setGenerateTables 和 setUnGenerateTables 未配置时，生成所有表。
         globalConfig.getStrategyConfig()

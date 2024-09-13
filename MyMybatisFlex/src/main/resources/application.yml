@@ -8,7 +8,7 @@ spring:
 
   # 数据库的相关配置
   datasource:
-    url: jdbc:mysql://192.168.1.10:35896/kongyu  # 数据库连接URL
+    url: jdbc:mysql://192.168.1.10:35725/kongyu  # 数据库连接URL
     username: root  # 数据库用户名
     password: Admin@123  # 数据库密码
     driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL数据库驱动类

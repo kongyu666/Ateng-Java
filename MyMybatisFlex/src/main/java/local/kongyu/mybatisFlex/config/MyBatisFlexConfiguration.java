@@ -12,11 +12,12 @@ public class MyBatisFlexConfiguration {
 
     private static final Logger logger = LoggerFactory.getLogger("mybatis-flex-sql");
 
+    // SQL 日志打印
     public MyBatisFlexConfiguration() {
         //开启审计功能
         AuditManager.setAuditEnable(true);
 
         //设置 SQL 审计收集器
-        AuditManager.setMessageCollector(auditMessage -> logger.info("{}ms, {}", auditMessage.getElapsedTime(), auditMessage.getFullSql()));
+        AuditManager.setMessageCollector(auditMessage -> logger.info("访问数据库 ==> Time={}ms, SQL={}", auditMessage.getElapsedTime(), auditMessage.getFullSql()));
     }
 }

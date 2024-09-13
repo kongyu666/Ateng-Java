@@ -2,6 +2,7 @@ package local.kongyu.mybatisFlex.mapper;
 
 import com.mybatisflex.core.BaseMapper;
 import local.kongyu.mybatisFlex.entity.MyUser;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  *  映射层。
