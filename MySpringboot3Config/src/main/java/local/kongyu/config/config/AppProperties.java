@@ -14,4 +14,11 @@ public class AppProperties {
     private String name;
     private int port;
     private List<Integer> ids;
+    private Ateng ateng;
+
+    @Data
+    public static class Ateng{
+        private String name;
+        private int age;
+    }
 }
