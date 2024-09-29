@@ -1,9 +1,11 @@
 package local.kongyu.hutool;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.file.PathUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -28,6 +30,40 @@ public class FileUtilTests {
             String line = reader.readLine();
             System.out.println(line);
         }
+    }
+
+    // 读取文件为二进制，并写入到其他地方
+    @Test
+    void readBytes() {
+        // 读取文件为二进制
+        byte[] fileBytes = FileUtil.readBytes("D:\\Temp\\202409\\20240929\\tree.jpg");
+        // 写入到其他地方
+        FileUtil.writeBytes(fileBytes, "D:\\Temp\\202409\\20240929\\tree-2.jpg");
+    }
+
+    // 创建目录
+    @Test
+    void mkdir() {
+        FileUtil.mkdir("D:\\Temp\\202409\\20240929");
+    }
+
+
+    // 判断目录或文件是否存在
+    @Test
+    void exist() {
+        // 目录
+        boolean isDirExist = FileUtil.exist("D:\\Temp\\202409\\20240929");
+        System.out.println(isDirExist);
+        // 文件
+        boolean isFileExist = FileUtil.exist("D:\\Temp\\202409\\20240929\\1.txt");
+        System.out.println(isFileExist);
+    }
+
+    // 删除目录(递归)
+    @Test
+    void del() {
+        boolean isDel = FileUtil.del("D:\\Temp\\202409\\20240929");
+        System.out.println(isDel);
     }
 
 }

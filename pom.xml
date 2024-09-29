@@ -47,5 +47,6 @@
         <module>MySpringCloud</module>
         <module>MySpringKafka</module>
         <module>MySpringboot3Config</module>
+        <module>MySpringboot3Startup</module>
     </modules>
 </project>
