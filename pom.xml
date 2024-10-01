@@ -48,5 +48,6 @@
         <module>MySpringKafka</module>
         <module>MySpringboot3Config</module>
         <module>MySpringboot3Startup</module>
+        <module>MySpringBoot3SaToken</module>
     </modules>
 </project>

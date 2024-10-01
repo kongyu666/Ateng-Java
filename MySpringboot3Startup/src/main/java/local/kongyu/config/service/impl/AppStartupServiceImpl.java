@@ -2,6 +2,7 @@ package local.kongyu.config.service.impl;
 
 import cn.hutool.extra.spring.SpringUtil;
 import jakarta.annotation.PostConstruct;
+import local.kongyu.config.event.MyCustomEvent;
 import local.kongyu.config.service.AppStartupService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -37,5 +38,12 @@ public class AppStartupServiceImpl implements AppStartupService {
     public void startup3() {
         String myBean = SpringUtil.getApplicationContext().getBean("myBean", String.class);
         log.info("myBean={}", myBean);
+    }
+
+    @Override
+    @EventListener
+    public void startup4(MyCustomEvent myCustomEvent) {
+        log.info("myCustomEvent={}", myCustomEvent.getMessage());
+
     }
 }
