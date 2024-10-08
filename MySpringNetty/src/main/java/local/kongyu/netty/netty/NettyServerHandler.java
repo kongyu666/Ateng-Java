@@ -56,7 +56,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        System.out.println("Received message from " + ctx.channel().remoteAddress() + ": " + msg);
+        //System.out.println("Received message from " + ctx.channel().remoteAddress() + ": " + msg);
     }
 
     /**

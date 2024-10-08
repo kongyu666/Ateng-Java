@@ -13,6 +13,7 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +28,7 @@ import javax.annotation.PreDestroy;
  * @date 2024-08-29 09:21:02
  */
 @Component
+@Slf4j
 public class NettyClient {
 
     private final EventLoopGroup group = new NioEventLoopGroup();
@@ -64,10 +66,10 @@ public class NettyClient {
 
             // 连接到服务器并同步等待连接完成
             channel = b.connect(host, port).sync().channel();
-            System.out.println("Netty client connected to server at " + host + ":" + port);
+            log.info("连接TCP服务端成功：{}:{}", host, port);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt(); // 恢复线程中断状态
-            System.err.println("Netty client failed to start: " + e.getMessage());
+            log.error("连接TCP服务端失败：{}:{}, 错误内容：{}", host, port, e.getMessage());
         }
     }
 
@@ -91,7 +93,7 @@ public class NettyClient {
         }
         // 优雅地关闭线程组，释放资源
         group.shutdownGracefully();
-        System.out.println("Netty client stopped.");
+        log.info("关闭TCP服务端连接：{}:{}", host, port);
     }
 }
 

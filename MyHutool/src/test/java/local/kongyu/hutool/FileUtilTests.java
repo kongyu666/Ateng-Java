@@ -59,6 +59,13 @@ public class FileUtilTests {
         System.out.println(isFileExist);
     }
 
+    // 获取文件的目录
+    @Test
+    void getParent() {
+        String parent = FileUtil.getParent("D:\\Temp\\202409\\20240929\\1.txt", 1);
+        System.out.println(parent);
+    }
+
     // 删除目录(递归)
     @Test
     void del() {

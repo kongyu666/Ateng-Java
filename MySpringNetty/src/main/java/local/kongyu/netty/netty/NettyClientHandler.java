@@ -13,7 +13,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<String> {
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        System.out.println("Received message from server: " + msg);
+        //System.out.println("Received message from server: " + msg);
     }
 
     /**
@@ -21,7 +21,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<String> {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("Client connected to server: " + ctx.channel().remoteAddress());
+        //System.out.println("Client connected to server: " + ctx.channel().remoteAddress());
     }
 
     /**
@@ -29,7 +29,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<String> {
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("Client disconnected from server");
+        //System.out.println("Client disconnected from server");
     }
 
     /**

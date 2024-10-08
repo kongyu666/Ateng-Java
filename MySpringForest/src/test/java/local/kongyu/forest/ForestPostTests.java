@@ -1,5 +1,6 @@
 package local.kongyu.forest;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.dtflys.forest.Forest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,20 @@ class ForestPostTests {
                 .contentTypeJson()        // 指定请求体为JSON格式
                 .addBody("account", "309324904@qq.com")
                 .addBody("password", "123456")
+                .executeAsString();
+        System.out.println(str);
+    }
+
+    @Test
+    void getAsString2() {
+        JSONObject body = JSONObject.of(
+                "account", "309324904@qq.com",
+                "password", "123456"
+        );
+        String str = Forest
+                .post("https://api.apiopen.top/api/login")
+                .contentTypeJson()        // 指定请求体为JSON格式
+                .addBody(body)
                 .executeAsString();
         System.out.println(str);
     }

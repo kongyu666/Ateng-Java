@@ -12,6 +12,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +30,7 @@ import javax.annotation.PreDestroy;
 @Component
 public class NettyServer {
 
+    private static final Logger log = LoggerFactory.getLogger(NettyServer.class);
     // BossGroup 负责处理客户端的连接请求，线程数为1（通常即可）。
     private final EventLoopGroup bossGroup = new NioEventLoopGroup(1);
     // WorkerGroup 负责处理客户端的读写操作，线程数默认为 CPU 核心数的两倍。
@@ -64,10 +67,10 @@ public class NettyServer {
 
             // 绑定端口并同步等待服务端启动
             channel = b.bind(port).sync().channel();
-            System.out.println("Netty server started on port " + port);
+            log.info("启动TCP服务端成功，端口号：{}", port);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt(); // 恢复线程中断状态
-            System.err.println("Netty server failed to start: " + e.getMessage());
+            log.error("启动TCP服务端失败，端口号：{}，失败内容：{}", port, e.getMessage());
         }
     }
 
@@ -92,7 +95,7 @@ public class NettyServer {
         // 优雅地关闭线程组，释放资源
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();
-        System.out.println("Netty server stopped.");
+        log.info("关闭TCP服务，端口号：{}", port);
     }
 }
 
