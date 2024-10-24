@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 文件工具类
@@ -64,6 +65,20 @@ public class FileUtilTests {
     void getParent() {
         String parent = FileUtil.getParent("D:\\Temp\\202409\\20240929\\1.txt", 1);
         System.out.println(parent);
+    }
+
+    // 获取文件的目录
+    @Test
+    void loopFiles() {
+        // 指定要列出的目录路径
+        String directoryPath = "D:\\Temp\\202410";
+
+        // 使用Hutool的FileUtil来列出所有以.jpg结尾的文件
+        List<File> jpgFiles = FileUtil.loopFiles(FileUtil.file(directoryPath), 1, file -> file.getName().toLowerCase().endsWith(".txt"));
+
+        // 输出文件列表
+        jpgFiles.forEach(System.out::println);
+
     }
 
     // 删除目录(递归)

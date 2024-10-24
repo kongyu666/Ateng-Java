@@ -49,6 +49,15 @@ public class RedisHashMapTests {
         System.out.println(result);
     }
 
+    // 获取Key
+    @Test
+    void getKey() {
+        String key = "my:hashmap:user";
+        Set keys = redisTemplate.opsForHash().keys(key);
+        Object next = keys.iterator().next();
+        System.out.println(next);
+    }
+
     // 获取多个hashMap的值
     @Test
     void multiGet() {
