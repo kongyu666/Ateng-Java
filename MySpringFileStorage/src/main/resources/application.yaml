@@ -5,7 +5,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
-      max-request-size: 1GB
+      max-request-size: 10MB
       resolve-lazily: true # 开启 multipart 懒加载
 
 dromara:
@@ -21,4 +21,14 @@ dromara:
         bucket-name: test
         domain: "http://dev.minio.lingo.local/test/" # 访问域名，注意“/”结尾，例如：http://minio.abc.com/abc/
         base-path: kongyu/ # 基础路径
-
+    ftp:
+      - platform: ftp-1 # 存储平台标识
+        enable-storage: true  # 启用存储
+        host: 192.168.1.13 # 主机，例如：192.168.1.105
+        port: 21 # 端口，默认21
+        user: admin # 用户名，默认 anonymous（匿名）
+        password: "Admin@123" # 密码，默认空
+        domain: ftp://192.168.1.13/ # 访问域名，注意“/”结尾，例如：ftp://192.168.1.105/
+        base-path: data/ # 基础路径
+        storage-path: / # 存储路径，可以配合 Nginx 实现访问，注意“/”结尾，默认“/”
+        isActive: false # 是否主动模式，默认被动模式

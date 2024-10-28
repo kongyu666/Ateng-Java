@@ -19,7 +19,7 @@
         <spring-boot.version>2.7.18</spring-boot.version>
         <maven-compiler.version>3.12.1</maven-compiler.version>
         <lombok.version>1.18.30</lombok.version>
-        <file-storage.version>2.1.0</file-storage.version>
+        <file-storage.version>2.2.1</file-storage.version>
         <minio.version>8.5.2</minio.version>
         <fastjson2.version>2.0.46</fastjson2.version>
         <hutool.version>5.8.26</hutool.version>
@@ -51,6 +51,17 @@
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
             <version>${minio.version}</version>
+        </dependency>
+        <!-- FTP依赖 -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.11.1</version>
         </dependency>
 
         <!-- Lombok: 简化Java代码编写的依赖项 -->
