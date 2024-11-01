@@ -49,5 +49,6 @@
         <module>MySpringboot3Config</module>
         <module>MySpringboot3Startup</module>
         <module>MySpringBoot3SaToken</module>
+        <module>MySpringboot3Validator</module>
     </modules>
 </project>

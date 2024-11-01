@@ -338,12 +338,11 @@ public class DateUtilTests {
      */
     @Test
     void test12() {
-        DateTime startTime = DateUtil.parse("07:00:00");
-        DateTime endTime = DateUtil.parse("09:00:00");
-        //DateTime currentTime = DateUtil.date();
-        DateTime currentTime = DateUtil.parse("09:00:00");
+        DateTime startTime = DateUtil.parse("09:00:00");
+        DateTime endTime = DateUtil.parse("18:00:00");
+        //DateTime currentTime = DateUtil.parse("09:00:00");
+        DateTime currentTime = DateUtil.date();
         boolean isIn = DateUtil.isIn(currentTime, startTime, endTime);
         System.out.println(isIn);
-        System.out.println(DateUtil.formatDateTime(DateUtil.date()).substring(0, 10));
     }
 }
