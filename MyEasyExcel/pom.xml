@@ -22,7 +22,7 @@
         <fastjson2.version>2.0.45</fastjson2.version>
         <hutool.version>5.8.25</hutool.version>
         <poi.version>5.2.5</poi.version>
-        <easyexcel.version>4.0.2</easyexcel.version>
+        <easyexcel.version>4.0.3</easyexcel.version>
     </properties>
 
     <!-- 项目依赖 -->
@@ -77,22 +77,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
             <version>${easyexcel.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.poi</groupId>
-                    <artifactId>poi-ooxml-schemas</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
         </dependency>
 
         <!-- JavaFaker: 用于生成虚假数据的Java库 -->
