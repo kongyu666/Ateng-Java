@@ -51,6 +51,13 @@
             <version>4.0.0</version>
         </dependency>
 
+        <!-- FTP客户端封装，此客户端基于Apache Commons Net -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.11.1</version>
+        </dependency>
+
         <!-- Lombok: 简化Java代码编写的依赖项 -->
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>

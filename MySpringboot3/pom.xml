@@ -16,7 +16,7 @@
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.2.2</spring-boot.version>
+        <spring-boot.version>3.4.0</spring-boot.version>
         <maven-compiler.version>3.12.1</maven-compiler.version>
         <lombok.version>1.18.30</lombok.version>
         <hutool.version>5.8.25</hutool.version>
@@ -59,6 +59,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Spring Boot Admin 监控工具 -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
         <!-- Hutool: Java工具库，提供了许多实用的工具方法 -->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -82,12 +89,37 @@
 
     <!-- 插件仓库配置 -->
     <repositories>
+        <!-- 中央仓库配置 -->
         <repository>
-            <id>central</id>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <id>public</id>
+            <name>阿里云中央仓库</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <!--<name>华为云中央仓库</name>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>-->
+            <!--
+            <name>Maven官方中央仓库</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+            -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </repository>
     </repositories>
+
+    <!-- 插件的插件仓库配置 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>阿里云中央仓库</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <!-- 构建配置 -->
     <build>

@@ -1,0 +1,29 @@
+server:
+  port: 8080
+---
+# SpringBoot3和JDK21 开启虚拟线程
+spring:
+  threads:
+    virtual:
+      enabled: true
+---
+# 配置文件上传大小限制
+spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+---
+# Actuator 监控端点的配置项
+management:
+  endpoints: # 配置Actuator端点的管理
+    web:
+      exposure: # 暴露端点
+        #include: 'health,shutdown'  # 包含所有端点，可以根据需要更改为具体的端点列表
+        include: '*'  # 包含所有端点，可以根据需要更改为具体的端点列表
+  endpoint: # 配置各个端点的行为
+    shutdown: # 关闭端点配置
+      access: unrestricted # 启用shutdown端点，允许通过POST请求关闭应用程序
+    health: # 健康检查端点配置
+      show-details: always # 显示完整的健康信息，包括详细的检查项
+---

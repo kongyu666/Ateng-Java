@@ -1,7 +1,6 @@
 package local.kongyu.hutool;
 
 import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.file.PathUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -39,7 +38,7 @@ public class FileUtilTests {
         // 读取文件为二进制
         byte[] fileBytes = FileUtil.readBytes("D:\\Temp\\202409\\20240929\\tree.jpg");
         // 写入到其他地方
-        FileUtil.writeBytes(fileBytes, "D:\\Temp\\202409\\20240929\\tree-2.jpg");
+        FileUtil.writeBytes(fileBytes, "D:\\Temp\\202411\\20241128\\tree-2.jpg");
     }
 
     // 创建目录
