@@ -1,11 +1,14 @@
 package local.kongyu.hutool;
 
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.extra.ftp.Ftp;
+import cn.hutool.extra.ftp.FtpConfig;
 import cn.hutool.extra.ftp.FtpMode;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -43,6 +46,50 @@ public class FtpUtilTests {
         } finally {
             // 关闭FTP连接
             ftp.close();
+        }
+    }
+
+    @Test
+    public void testFtpUtil2() {
+        // FTP服务器的配置信息
+        String ftpHost = "ftp.example.com";
+        String username = "yourUsername";
+        String password = "yourPassword";
+        int port = 21; // 默认FTP端口
+        String remoteDir = "/remote/dir"; // 远程目录
+        String localFilePath = "path/to/local/file.txt"; // 本地文件路径
+        String remoteFilePath = remoteDir + "/file.txt"; // 远程文件路径
+
+        // 设置连接超时时间和读取超时时间（单位：毫秒）
+        int connectTimeout = 5000; // 连接超时 5秒
+        int readTimeout = 5000; // 读取超时 5秒
+
+        // 创建FtpConfig对象，配置FTP相关信息
+        FtpConfig config = FtpConfig.create()
+                .setHost(ftpHost)
+                .setPort(port)
+                .setUser(username)
+                .setPassword(password)
+                .setConnectionTimeout(connectTimeout)
+                .setSoTimeout(readTimeout);
+
+        // 创建 Ftp 客户端
+        try (Ftp ftp = new Ftp(config, FtpMode.Passive)) {
+
+            // 切换到远程目录
+            ftp.cd(remoteDir);
+
+
+            // 上传文件
+            File localFile = FileUtil.file(localFilePath);
+            boolean uploadSuccess = ftp.upload(remoteFilePath, localFile);
+            if (uploadSuccess) {
+                System.out.println("文件上传成功！");
+            } else {
+                System.out.println("文件上传失败！");
+            }
+        } catch (IOException e) {
+            System.out.println("FTP操作失败: " + e.getMessage());
         }
     }
 }

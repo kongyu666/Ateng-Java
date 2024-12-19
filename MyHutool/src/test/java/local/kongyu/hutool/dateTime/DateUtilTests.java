@@ -15,6 +15,19 @@ import java.util.List;
  * @since 2024-02-02 13:33
  */
 public class DateUtilTests {
+
+    /**
+     * 根据时间戳获取时间
+     */
+    @Test
+    void test00() {
+        // 注意是毫秒单位，需要乘1000
+        long now = 1733906940L * 1000;
+        System.out.println(now);
+        DateTime dateTime = DateUtil.date(now);
+        System.out.println(dateTime);
+    }
+
     /**
      * 获取当前时间
      */
